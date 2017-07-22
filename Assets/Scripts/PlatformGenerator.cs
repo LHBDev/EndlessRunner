@@ -6,8 +6,6 @@ public class PlatformGenerator : MonoBehaviour {
 
     public GameObject thePlatform;
 
-    public float distanceBetween;
-
     public float timer = 0f;
     // Use this for initialization
     void Start () {
