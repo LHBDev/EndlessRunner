@@ -8,6 +8,8 @@ public class PlatformGenerator : MonoBehaviour {
 
     public float timer = 0f;
 
+    public bool pause = false;
+
     private int number;
 
     // Use this for initialization
@@ -18,7 +20,7 @@ public class PlatformGenerator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         
-        if(timer>1f)
+        if(timer>1f && !pause)
         {
             
             Instantiate(thePlatform[number], transform.position, transform.rotation);
@@ -28,6 +30,11 @@ public class PlatformGenerator : MonoBehaviour {
         else
         {
             timer += Time.deltaTime;
+        }
+
+        if(pause)
+        {
+            number = 0;
         }
     }
 }

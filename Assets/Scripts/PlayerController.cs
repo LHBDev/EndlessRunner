@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour {
 
     private Rigidbody2D rigidBody;
 
+    public GameManager theGameManager;
+
      void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -59,6 +61,15 @@ public class PlayerController : MonoBehaviour {
         else
         {
             myAnimator.SetInteger("State", 0);
-        }
+        }    
     }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "death")
+        {
+            theGameManager.RestartGame();
+            Debug.Log("The Player Died");
+        }
+}
+
 }
